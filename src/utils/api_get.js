@@ -23,6 +23,7 @@ const paths = {
   'strategies': 'accounting/api/strategies',
   'ticker_types': 'classifiers/api/ticker_types',
   'ticker_type_names': 'classifiers/api/ticker_types/names',
+  'trades':'accounting/api/trades'
 };
 
 export const getGenericRequest = (path) => {
@@ -89,6 +90,19 @@ export const getPrices = () => {
 export const getOrganizations = (org_type) => {
   let URL = APIroot + 'staticdata/api/organizations';
   org_type ? (URL += `?org_type=${org_type}`) : null;
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+
+export const getTradeById = (id) => {
+  let URL = APIroot + 'accounting/api/trades/' + id;
   return axios
     .get(URL)
     .then((response) => {

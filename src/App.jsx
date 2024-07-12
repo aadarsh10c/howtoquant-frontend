@@ -13,6 +13,7 @@ import Funds from './components/pages/Funds';
 import Books from './components/pages/Books';
 import Strategies from './components/pages/Strategies';
 import PBAccount from './components/pages/PBAccounts';
+import Trades from './components/pages/Trades';
 
 import MainArea from './components/pages/MainArea';
 import TableContainer from './components/containers/TableContainer';
@@ -28,7 +29,7 @@ function App() {
     { 'instruments': ['equities', 'new instrument'] },
     { 'market data': ['identifiers', 'prices'] },
     { 'organizations': ['funds', 'books', 'strategies', 'PB accounts'] },
-    { 'Test': ['test'] },
+    { 'accounting': ['trades']},
   ]);
 
   const [routes, setRoutes] = useState([]);
@@ -65,7 +66,6 @@ function App() {
       <section className='d-flex max-height'>
         <NavPane categories={categories} />
         <Routes>
-          {/* TO BE REPLACED WITH SECTION SPECIFIC PAGES */}
           <Route path='/' element={<MainArea />} />
           {routes.includes('equities') && (
             <Route path='/equities' element={<Equities />} />
@@ -103,8 +103,8 @@ function App() {
           {routes.includes('prices') && (
             <Route path='/prices' element={<Prices />} />
           )}
-          {routes.includes('test') && (
-            <Route path='/test' element={<Loading />} />
+          {routes.includes('trades') && (
+            <Route path='/trades' element={<Trades />} />
           )}
         </Routes>
       </section>
