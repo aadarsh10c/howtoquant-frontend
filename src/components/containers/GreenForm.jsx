@@ -101,6 +101,7 @@ export default function GreenForm(props) {
                     text={value.props.text}
                     labelLocation={value.props.labelLocation}
                     id={value.props.id}
+                    options = {value.props.options}
                     fetchFunction={value.props.fetchFunction}
                     fetchKey={value.props.fetchKey}
                     fetchParams={value.props.fetchParams}
