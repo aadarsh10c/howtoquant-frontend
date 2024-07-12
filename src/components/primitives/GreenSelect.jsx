@@ -34,26 +34,25 @@ export default function GreenSelect(props) {
 
     */
 
-  const [content, setContent] = useState(['', 'Retrieving options...']);
+  const [content, setContent] = useState(['']);
 
   useEffect(() => {
     setContent(['', 'Retrieving options...']);
-    if (fetchFunction) {
+    if (fetchFunction !== undefined) {
       fetchFunction(fetchParams)
         .then((data) => {
           setContent(Array(' ').concat(data[fetchKey]));
-          //onChange('', '');
         })
         .catch((error) => {
           setContent(['An error occured']);
         });
     } else {
-      setContent(options);
+      setContent(Array(' ').concat(options));
     }
   }, [fetchParams]);
 
   const handleSelect = (event) => {
-    if (typeof onChange !== 'undefined') {
+    if (typeof onChange !== undefined) {
       onChange(
         event.target.value,
         event.target.options[event.target.selectedIndex].text
