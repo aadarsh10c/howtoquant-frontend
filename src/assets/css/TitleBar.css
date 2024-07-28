@@ -1,24 +1,21 @@
 header p {
-  margin-bottom: 0px;
   color: lightyellow;
+  margin-bottom: 0px;
 }
-
-
 
 .decorative-strips {
   background-color: moccasin;
 }
 
 .title {
-  font-size:3rem;
+  font-size: 3rem;
 }
 
 .logo {
-  width: 7rem;
-  height: 7rem;
   border-color: moccasin;
+  border-radius: 0.4rem;
   border-style: solid;
   border-width: 2px;
-  border-radius: 0.4rem;
-  
+  height: 7rem;
+  width: 7rem;
 }
