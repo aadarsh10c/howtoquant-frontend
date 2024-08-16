@@ -5,8 +5,10 @@ const paths = {
   'accounting_method_names': 'classifiers/api/accounting_methods/names',
   'account_names': 'accounting/api/pbaccounts/names',
   'books': 'accounting/api/books',
+  'book_names': 'accounting/api/books/names',
   'ccies': 'classifiers/api/currencies',
   'ccy_codes': 'classifiers/api/currencies/codes',
+  'counterparty_names': 'staticdata/api/organizations/counterparty_names',
   'country_names': 'classifiers/api/countries/names',
   'equities': 'staticdata/api/equities',
   'fund_names': 'staticdata/api/organizations/fund_names',
@@ -21,9 +23,10 @@ const paths = {
   'sector_names': 'classifiers/api/sectors/names',
   'subsector_names': 'classifiers/api/subsectors/names',
   'strategies': 'accounting/api/strategies',
+  'strategy_names': 'accounting/api/strategies/names',
   'ticker_types': 'classifiers/api/ticker_types',
   'ticker_type_names': 'classifiers/api/ticker_types/names',
-  'trades':'accounting/api/trades'
+  'trades': 'accounting/api/trades',
 };
 
 export const getGenericRequest = (path) => {
@@ -99,7 +102,6 @@ export const getOrganizations = (org_type) => {
       throw error;
     });
 };
-
 
 export const getTradeById = (id) => {
   let URL = APIroot + 'accounting/api/trades/' + id;

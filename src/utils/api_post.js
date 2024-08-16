@@ -66,3 +66,17 @@ export const postStrategies = (name, description) => {
       throw error;
     });
 };
+
+export const postTrades = (tradeData) => {
+  let URL = APIroot + 'accounting/api/trades';
+  const body = structuredClone(tradeData);
+
+  return axios
+    .post(URL, body)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
