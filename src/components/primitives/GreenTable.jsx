@@ -83,11 +83,13 @@ return (
 
         <table {...getTableProps()}>
             <thead>
-                {headerGroups.map((headerGroup, index) =>(
-                    <tr {...headerGroup.getHeaderGroupProps()} >
+                {headerGroups.map((headerGroup, index) =>{
+                    const {key, ...restHeaderGroupProps} = headerGroup.getHeaderGroupProps()
+                    return <tr key = {key} {...restHeaderGroupProps} >
                         {
-                            headerGroup.headers.map((column) =>(
-                                <th {...column.getHeaderProps()}>                                
+                            headerGroup.headers.map((column) =>{
+                                const {key, ...restHeaderProps} = column.getHeaderProps()
+                                return <th key = {key}  {...restHeaderProps}>                                
                                     <div {...column.getSortByToggleProps()}>
                                         {column.render('Header')}
                                         {column.isSorted ? (column.isSortedDesc? '  🡣': '  🡩'):'  ᛨ'}
@@ -100,20 +102,22 @@ return (
                                         : null}
                                     </span>
                                 </th>
-                            ))
+                            })
                         }                    
                     </tr>
-                ))}
+                })}
             </thead>
             <tbody {...getTableBodyProps()}>
                 {
                     page.map((row) =>{
                         prepareRow(row)
+                        const {key, ...restRowProps} = row.getRowProps()
                         return (
-                            <tr {...row.getRowProps()}>
+                            <tr key = {key} {...restRowProps}>
                                 {
                                     row.cells.map((cell) =>{
-                                        return <td {...cell.getCellProps()}>
+                                        const {key, ...restCellProps} = cell.getCellProps()
+                                        return <td key = {key} {...restCellProps}>
                                             {cell.render('Cell')}
                                         </td>
                                     })                                
