@@ -42,8 +42,59 @@ export const getGenericRequest = (path) => {
     });
 };
 
+export const getCashLadder = (start_date, end_date) => {
+  let URL = APIroot + 'accounting/api/cash_ladder';
+  start_date
+    ? end_date
+      ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
+      : (URL += `?start_date=${start_date}`)
+    : end_date
+    ? (URL += `?end_date=${end_date}`)
+    : null;
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const getInstrumentByTicker = (ticker) => {
   let URL = APIroot + 'staticdata/api/equities/' + ticker;
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getInstrumentLadder = (start_date, end_date) => {
+  let URL = APIroot + 'accounting/api/instrument_ladder';
+  start_date
+    ? end_date
+      ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
+      : (URL += `?start_date=${start_date}`)
+    : end_date
+    ? (URL += `?end_date=${end_date}`)
+    : null;
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const getOrganizations = (org_type) => {
+  let URL = APIroot + 'staticdata/api/organizations';
+  org_type ? (URL += `?org_type=${org_type}`) : null;
   return axios
     .get(URL)
     .then((response) => {
@@ -80,19 +131,6 @@ export const getPriceDownload = (id) => {
 
 export const getPrices = () => {
   let URL = APIroot + 'marketdata/api/prices';
-  return axios
-    .get(URL)
-    .then((response) => {
-      return response.data.data;
-    })
-    .catch((error) => {
-      throw error;
-    });
-};
-
-export const getOrganizations = (org_type) => {
-  let URL = APIroot + 'staticdata/api/organizations';
-  org_type ? (URL += `?org_type=${org_type}`) : null;
   return axios
     .get(URL)
     .then((response) => {

@@ -4,22 +4,21 @@ import './assets/css/DatePicker.css';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import TitleBar from './components/layout/TitleBar';
-import NavPane from './components/layout/NavPane';
-import NewInstrument from './components/pages/NewInstrument';
-import Prices from './components/pages/Prices';
+import Books from './components/pages/Books';
 import Equities from './components/pages/Equities';
 import Funds from './components/pages/Funds';
-import Books from './components/pages/Books';
-import Strategies from './components/pages/Strategies';
+import LaddersToday from './components/pages/LaddersToday';
+import MainArea from './components/pages/MainArea';
+import NavPane from './components/layout/NavPane';
+import NewInstrument from './components/pages/NewInstrument';
 import PBAccount from './components/pages/PBAccounts';
+import Prices from './components/pages/Prices';
+import Strategies from './components/pages/Strategies';
+import TableContainer from './components/containers/TableContainer';
+import TitleBar from './components/layout/TitleBar';
 import Trades from './components/pages/Trades';
 
-import MainArea from './components/pages/MainArea';
-import TableContainer from './components/containers/TableContainer';
-
 import { getGenericRequest } from './utils/api_get';
-import Loading from './components/static/Loading';
 
 function App() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -29,7 +28,12 @@ function App() {
     { 'instruments': ['equities', 'new instrument'] },
     { 'market data': ['identifiers', 'prices'] },
     { 'organizations': ['funds', 'books', 'strategies', 'PB accounts'] },
-    { 'accounting': ['trades']},
+    {
+      'accounting': [
+        'trades',
+        'positions today',
+      ],
+    },
   ]);
 
   const [routes, setRoutes] = useState([]);
@@ -105,6 +109,9 @@ function App() {
           )}
           {routes.includes('trades') && (
             <Route path='/trades' element={<Trades />} />
+          )}
+          {routes.includes('positions today') && (
+            <Route path='/positions today' element={<LaddersToday />} />
           )}
         </Routes>
       </section>
