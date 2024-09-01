@@ -23,6 +23,8 @@ export default function LaddersHistory(props) {
     setGotDates(false);
     setTitle(`${pageTitle} Ladder`);
     setAPIKey(`${ladder}_ladder`);
+    if (ladder === 'cash') {setDateTo(new Date(new Date().setDate(new Date().getDate() +2)))}
+    else {setDateTo(new Date())};
   }, [ladder]);
 
   const handleSubmit = (event) => {
