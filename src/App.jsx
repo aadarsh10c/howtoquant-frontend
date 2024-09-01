@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import Books from './components/pages/Books';
 import Equities from './components/pages/Equities';
 import Funds from './components/pages/Funds';
+import LaddersHistory from './components/pages/LaddersHistory';
 import LaddersToday from './components/pages/LaddersToday';
 import MainArea from './components/pages/MainArea';
 import NavPane from './components/layout/NavPane';
@@ -32,6 +33,7 @@ function App() {
       'accounting': [
         'trades',
         'cash ladder',
+        'asset ladder',
         'positions today',
       ],
     },
@@ -113,6 +115,12 @@ function App() {
           )}
           {routes.includes('positions today') && (
             <Route path='/positions today' element={<LaddersToday />} />
+          )}
+          {routes.includes('asset ladder') && (
+            <Route path='/asset ladder' element={<LaddersHistory ladder = {'asset'}/>} />
+          )}
+          {routes.includes('cash ladder') && (
+            <Route path='/cash ladder' element={<LaddersHistory ladder = {'cash'}/>} />
           )}
         </Routes>
       </section>
