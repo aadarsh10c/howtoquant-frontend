@@ -294,6 +294,7 @@ export default function Trades() {
           }}
         />
       </div>
+      <p className='pt-3 mb-0 small'>New trades can take up to 10 minutes to process into positions</p>
       <section className='d-flex justify-content-center top-split mt-4 py-5'>
         {subpage === 'viewTrades' ? (
           <TableContainer
