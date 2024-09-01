@@ -11,18 +11,16 @@ export default function TitleBar() {
   return (
     <header className='green-bckgr py-2'>
       <div className='decorative-strips py-1'>
-        <div className=' green-bckgr  d-flex py-2 px-2 justify-content-between align-items-center'>
-          <div className='d-flex align-items-center'>
-            {/* LOGO TO BE IMPROVED AND ALIGNED WITH NAV PANE*/}
+        <div className=' green-bckgr  d-flex py-2 ps-2 pe-4 justify-content-between align-items-center'>
+          <div className='ps-1 d-flex align-items-center '>
             <Link to='/'>
-              <img className='logo p-2 mx-1' src={logo} alt='logo'></img>{' '}
+              <img className='logo py-2 px-4' src={logo} alt='logo'></img>{' '}
             </Link>
-            <p className='title px-2'>How to Quant?</p>
           </div>
           <div>
-            <p>User: {user.username}</p>
-            <p>Org: {user.organisation}</p>
-            <p>Version: {user.version}</p>
+            <p className='small user-context'>User: {user.username}</p>
+            <p className='small user-context'>Org: {user.organisation}</p>
+            <p className='small user-context'>Version: {user.version}</p>
           </div>
         </div>
       </div>
