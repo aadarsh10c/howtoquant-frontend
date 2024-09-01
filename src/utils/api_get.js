@@ -42,6 +42,27 @@ export const getGenericRequest = (path) => {
     });
 };
 
+export const getAssetLadder = (dates) => {
+  let URL = APIroot + 'accounting/api/asset_ladder';
+  const start_date = dates[0];
+  const end_date = dates[1];
+  start_date
+    ? end_date
+      ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
+      : (URL += `?start_date=${start_date}`)
+    : end_date
+    ? (URL += `?end_date=${end_date}`)
+    : null;
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const getCashLadder = (dates) => {
   let URL = APIroot + 'accounting/api/cash_ladder';
   const start_date = dates[0];
@@ -65,27 +86,6 @@ export const getCashLadder = (dates) => {
 
 export const getInstrumentByTicker = (ticker) => {
   let URL = APIroot + 'staticdata/api/equities/' + ticker;
-  return axios
-    .get(URL)
-    .then((response) => {
-      return response.data.data;
-    })
-    .catch((error) => {
-      throw error;
-    });
-};
-
-export const getInstrumentLadder = (dates) => {
-  let URL = APIroot + 'accounting/api/instrument_ladder';
-  const start_date = dates[0];
-  const end_date = dates[1];
-  start_date
-    ? end_date
-      ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
-      : (URL += `?start_date=${start_date}`)
-    : end_date
-    ? (URL += `?end_date=${end_date}`)
-    : null;
   return axios
     .get(URL)
     .then((response) => {

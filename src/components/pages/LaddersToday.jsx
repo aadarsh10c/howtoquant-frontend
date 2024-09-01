@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import GreenButton from '../primitives/GreenButton';
 import TableContainer from '../containers/TableContainer';
 
-import { getCashLadder, getInstrumentLadder } from '../../utils/api_get';
+import { getCashLadder, getAssetLadder } from '../../utils/api_get';
 
 export default function LaddersToday() {
   const [searchParams] = useSearchParams();
@@ -26,7 +26,7 @@ export default function LaddersToday() {
         <GreenButton
           text={'Instruments'}
           clickFunction={() => {
-            setSubPage('instLadder');
+            setSubPage('assetLadder');
           }}
         />
       </div>
@@ -38,12 +38,12 @@ export default function LaddersToday() {
             fetchParams={[today]}
             fetchKey={'cash_ladder'}
           />
-        ) : subpage === 'instLadder' ? (
+        ) : subpage === 'assetLadder' ? (
           <TableContainer
             title={'Instrument Positions'}
-            fetchFunction={getInstrumentLadder}
+            fetchFunction={getAssetLadder}
             fetchParams={[today]}
-            fetchKey={'instrument_ladder'}
+            fetchKey={'asset_ladder'}
           />
         ) : null}
       </section>
