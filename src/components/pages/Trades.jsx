@@ -13,26 +13,25 @@ export default function Trades() {
   const [searchParams] = useSearchParams();
   const [subpage, setSubPage] = useState(searchParams.get('subpage'));
 
-  const [ticker, setTicker] = useState('');
-  const [tickerId, setTickerId] = useState('');
+  const [bookId, setBookId] = useState('');
+  const [bookName, setBookName] = useState('');
   const [bsIndicator, setBSIndicator] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [counterpartyId, setCounterpartyId] = useState('');
+  const [counterpartyName, setCounterpartyName] = useState('');
+  const [postResponse, setPostResponse] = useState('');
   const [price, setPrice] = useState('');
-  const [tradeCcy, setTradeCcy] = useState('');
-  const [tradeCcyId, setTradeCcyId] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [settleBaseXRate, setSettleBaseXRate] = useState('');
   const [settleCcy, setSettleCcy] = useState('');
   const [settleCcyId, setSettleCcyId] = useState('');
-  const [tradeSettleXRate, setTradeSettleXRate] = useState('');
-  const [settleBaseXRate, setSettleBaseXRate] = useState('');
-  const [bookName, setBookName] = useState('');
-  const [bookId, setBookId] = useState('');
-  const [strategyName, setStrategyName] = useState('');
   const [strategyId, setStrategyId] = useState('');
-  const [counterpartyName, setCounterpartyName] = useState('');
-  const [counterpartyId, setCounterpartyId] = useState('');
-
-  const [postResponse, setPostResponse] = useState('');
-  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [strategyName, setStrategyName] = useState('');
+  const [ticker, setTicker] = useState('');
+  const [tickerId, setTickerId] = useState('');
+  const [tradeCcy, setTradeCcy] = useState('');
+  const [tradeCcyId, setTradeCcyId] = useState('');
+  const [tradeSettleXRate, setTradeSettleXRate] = useState('');
 
   const submitTradeData = () => {
     setButtonDisabled(true);

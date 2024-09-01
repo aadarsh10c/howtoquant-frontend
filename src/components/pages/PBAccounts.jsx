@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import GreenButton from '../primitives/GreenButton';
-import TableContainer from '../containers/TableContainer';
 import GreenForm from '../containers/GreenForm';
 import OrganizationAdd from './subpages/OrganizationAdd';
+import TableContainer from '../containers/TableContainer';
 
 import { getGenericRequest, getOrganizations } from '../../utils/api_get';
 import { postPBACcount } from '../../utils/api_post';
@@ -13,15 +13,15 @@ export default function PBAccount() {
   const [searchParams] = useSearchParams();
   const [subpage, setSubPage] = useState(searchParams.get('subpage'));
 
-  const [accountName, setAccountName] = useState('');
   const [accountExternalName, setAccountExternalName] = useState('');
-  const [brokerOrgName, setBrokerOrgName] = useState('');
+  const [accountName, setAccountName] = useState('');
   const [brokerOrgId, setBrokerOrgId] = useState('');
-  const [fundOrgName, setFundOrgName] = useState('');
+  const [brokerOrgName, setBrokerOrgName] = useState('');
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const [fundOrgId, setFundOrgId] = useState('');
+  const [fundOrgName, setFundOrgName] = useState('');
   const [isCashAccount, setIsCashAccount] = useState(false);
   const [postResponse, setPostResponse] = useState('');
-  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const submitAccountData = () => {
     setButtonDisabled(true);

@@ -3,26 +3,25 @@ import { useState, useEffect } from 'react';
 import DatePicker from 'react-multi-date-picker';
 
 import GreenButton from '../../primitives/GreenButton';
-import GreenTextBox from '../../primitives/GreenTextBox';
 import GreenCheckBox from '../../primitives/GreenCheckBox';
+import GreenTextBox from '../../primitives/GreenTextBox';
+import Loading from '../../static/Loading';
 
 import { getGenericRequest } from '../../../utils/api_get';
 import { putPriceDownload } from '../../../utils/api_put';
-import Loading from '../../static/Loading';
 
 export default function PriceDownload(props) {
   const { callbackFunc } = props;
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [downloadId, setDownloadId] = useState(null);
-  const [error, setError] = useState(null);
-
   const [allTickers, setAllTickers] = useState([]);
-  const [ticker, setTicker] = useState('');
   const [dateFrom, setDateFrom] = useState(
     new Date(new Date().setMonth(new Date().getMonth() - 1))
   );
   const [dateTo, setDateTo] = useState(new Date());
+  const [downloadId, setDownloadId] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [ticker, setTicker] = useState('');
 
   useEffect(() => {
     getGenericRequest('identifierCodes').then((data) => {

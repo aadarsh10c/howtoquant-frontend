@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
+import DownloadView from './subpages/DownloadView';
 import GreenButton from '../primitives/GreenButton';
 import PriceDownload from './subpages/PriceDownload';
-import DownloadView from './subpages/DownloadView';
 import TableContainer from '../containers/TableContainer';
 
 import { getGenericRequest } from '../../utils/api_get';
 
 export default function Prices() {
-  const [subpage, setSubPage] = useState(null);
   const [downloadId, setDownloadId] = useState(undefined);
   const [showDownload, setShowDownload] = useState(false);
+  const [subpage, setSubPage] = useState(null);
 
   useEffect(() => {}, [subpage]);
 

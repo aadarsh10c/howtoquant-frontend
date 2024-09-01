@@ -1,33 +1,34 @@
-import {useState } from 'react'
+import { useState } from 'react';
 
-import NavSection from './NavSection'
+import NavSection from './NavSection';
 
-import '../../assets/css/NavPane.css'
+import '../../assets/css/NavPane.css';
 
-export default function NavPane(props){
-    
-    const {categories} = props
+export default function NavPane(props) {
+  const { categories } = props;
 
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-    let content  = (
-        <>
-            {categories.map((item, index) =>{
-                return (<NavSection key = {index} section = {item} />)
-            })}
-        </>
+  let content = (
+    <>
+      {categories.map((item, index) => {
+        return <NavSection key={index} section={item} />;
+      })}
+    </>
+  );
 
-    )
+  if (isLoading) {
+    content = <Loading />;
+  }
 
+  if (error !== null) {
+    content = <Error errorCode={error.response.status} />;
+  }
 
-    if(isLoading) { content = <Loading /> }      
-  
-    if (error !== null) { content = <Error errorCode = {error.response.status} />  }
-
-    return (
-        <aside className="d-flex flex-column align-items-stretch green-bckgr p-1" >
-            {content}
-         </aside>
-    )
+  return (
+    <aside className='d-flex flex-column align-items-stretch green-bckgr p-1'>
+      {content}
+    </aside>
+  );
 }

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import GreenButton from '../primitives/GreenButton';
-import TableContainer from '../containers/TableContainer';
 import GreenForm from '../containers/GreenForm';
+import TableContainer from '../containers/TableContainer';
 
 import { getGenericRequest } from '../../utils/api_get';
 import { postStrategies } from '../../utils/api_post';
@@ -12,22 +12,21 @@ export default function Strategies() {
   const [searchParams] = useSearchParams();
   const [subpage, setSubPage] = useState(searchParams.get('subpage'));
 
-  const [strategyName, setStrategyName] = useState('');
-  const [strategyDescr, setStrategyDescr] = useState('');
-  const [postResponse, setPostResponse] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [postResponse, setPostResponse] = useState('');
+  const [strategyDescr, setStrategyDescr] = useState('');
+  const [strategyName, setStrategyName] = useState('');
 
   const submitStrategyData = () => {
     setButtonDisabled(true);
     postStrategies(strategyName, strategyDescr)
-    .then((data) => {
-      setPostResponse(data.status);
-      setButtonDisabled(false);
-    })
-    .catch((error) => {
-      setPostResponse(error);
-    });
-    
+      .then((data) => {
+        setPostResponse(data.status);
+        setButtonDisabled(false);
+      })
+      .catch((error) => {
+        setPostResponse(error);
+      });
   };
 
   const strategyData = [
@@ -96,7 +95,7 @@ export default function Strategies() {
             formTitle={'New Strategy'}
             formList={strategyData}
             onSubmit={submitStrategyData}
-            submitResult ={postResponse}
+            submitResult={postResponse}
           />
         ) : null}
       </section>

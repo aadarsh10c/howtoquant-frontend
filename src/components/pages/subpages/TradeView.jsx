@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 
-import GreenButton from '../../primitives/GreenButton';
-import GreenTextBox from '../../primitives/GreenTextBox';
-import GreenForm from '../../containers/GreenForm';
-
-import Loading from '../../static/Loading';
 import Error from '../../static/Error';
+import GreenButton from '../../primitives/GreenButton';
+import GreenForm from '../../containers/GreenForm';
+import GreenTextBox from '../../primitives/GreenTextBox';
+import Loading from '../../static/Loading';
 
 import { getTradeById } from '../../../utils/api_get';
 
 export default function TradeView(props) {
   const { contentTitle, initId, labelText } = props;
 
-  const [textbox, setTextbox] = useState(initId);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [textbox, setTextbox] = useState(initId);
   const [tradeData, setTradeData] = useState(null);
 
   useEffect(() => {
@@ -82,7 +81,9 @@ export default function TradeView(props) {
         </div>
         {isLoading && <Loading />}
         {error && <Error errorCode={error.response.status} />}
-        {tradeData && <GreenForm formTitle={contentTitle} formList={tradeData} />}
+        {tradeData && (
+          <GreenForm formTitle={contentTitle} formList={tradeData} />
+        )}
       </div>
     </>
   );

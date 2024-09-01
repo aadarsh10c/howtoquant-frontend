@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+
 import GreenButton from '../../primitives/GreenButton';
-import TableContainer from '../../containers/TableContainer';
-import GreenTextBox from '../../primitives/GreenTextBox';
 import GreenRadioButtons from '../../primitives/GreenRadioButtons';
+import GreenTextBox from '../../primitives/GreenTextBox';
+import TableContainer from '../../containers/TableContainer';
 
 import { getPriceDownload } from '../../../utils/api_get';
 import { putSavePriceDownload } from '../../../utils/api_put';
@@ -10,14 +11,14 @@ import { putSavePriceDownload } from '../../../utils/api_put';
 export default function DownloadView(props) {
   const { initDownloadId, initIsLoading = false } = props;
 
-  const [textbox, setTextbox] = useState('');
   const [downloadId, setDownloadId] = useState(initDownloadId);
   const [isLoading, setIsLoading] = useState(initIsLoading);
   const [isLoadingError, setIsLoadingError] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [saveType, setSaveType] = useState('missing');
-  const [saveResult, setSaveResult] = useState('');
   const [saveError, setSaveError] = useState('');
+  const [saveResult, setSaveResult] = useState('');
+  const [saveType, setSaveType] = useState('missing');
+  const [textbox, setTextbox] = useState('');
 
   useEffect(() => {
     initDownloadId ? setTextbox(initDownloadId) : null;

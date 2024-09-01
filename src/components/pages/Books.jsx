@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import GreenButton from '../primitives/GreenButton';
-import TableContainer from '../containers/TableContainer';
 import GreenForm from '../containers/GreenForm';
+import TableContainer from '../containers/TableContainer';
 
 import { getGenericRequest, getPBAccountNames } from '../../utils/api_get';
 import { postBooks } from '../../utils/api_post';
@@ -12,18 +12,18 @@ export default function Books() {
   const [searchParams] = useSearchParams();
   const [subpage, setSubPage] = useState(searchParams.get('subpage'));
 
-  const [bookName, setBookName] = useState('');
-  const [bookExternalName, setBookExternalName] = useState('');
-  const [accountingMethodName, setAccountingMethodName] = useState('');
-  const [accountingMethodId, setAccountingMethodId] = useState('');
-  const [ccyName, setCcyName] = useState('');
-  const [ccyId, setCcyId] = useState('');
-  const [accountName, setAccountName] = useState('');
   const [accountId, setAccountId] = useState('');
-  const [fundOrgName, setFundOrgName] = useState('');
-  const [fundOrgId, setFundOrgId] = useState('');
-  const [postResponse, setPostResponse] = useState('');
+  const [accountingMethodId, setAccountingMethodId] = useState('');
+  const [accountingMethodName, setAccountingMethodName] = useState('');
+  const [accountName, setAccountName] = useState('');
+  const [bookExternalName, setBookExternalName] = useState('');
+  const [bookName, setBookName] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [ccyId, setCcyId] = useState('');
+  const [ccyName, setCcyName] = useState('');
+  const [fundOrgId, setFundOrgId] = useState('');
+  const [fundOrgName, setFundOrgName] = useState('');
+  const [postResponse, setPostResponse] = useState('');
 
   const submitBookData = () => {
     setButtonDisabled(true);

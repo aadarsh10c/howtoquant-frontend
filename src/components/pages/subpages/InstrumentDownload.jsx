@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import GreenButton from '../../primitives/GreenButton';
-import GreenTextBox from '../../primitives/GreenTextBox';
 import GreenCheckBox from '../../primitives/GreenCheckBox';
+import GreenTextBox from '../../primitives/GreenTextBox';
+import Loading from '../../static/Loading';
 
 import { getGenericRequest } from '../../../utils/api_get';
 import { putInstrumentDownload } from '../../../utils/api_put';
-import Loading from '../../static/Loading';
 
 export default function InstrumentDownload() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [allTickers, setAllTickers] = useState([]);
-  const [ticker, setTicker] = useState('');
-  const [isExistingTicker, setIsExistingTicker] = useState(false);
+  const [error, setError] = useState(null);
   const [instId, setInstId] = useState(null);
+  const [isExistingTicker, setIsExistingTicker] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [ticker, setTicker] = useState('');
 
   useEffect(() => {
     getGenericRequest('identifierCodes').then((data) => {

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import GreenButton from '../primitives/GreenButton';
-import InstrumentDownload from './subpages/InstrumentDownload';
 import GreenForm from '../containers/GreenForm';
+import InstrumentDownload from './subpages/InstrumentDownload';
 
 import { getGenericRequest } from '../../utils/api_get';
 import { postInstruments } from '../../utils/api_post';
@@ -12,26 +12,22 @@ export default function NewInstrument() {
   const [searchParams] = useSearchParams();
   const [subpage, setSubPage] = useState(searchParams.get('subpage'));
 
-  const [name, setName] = useState('');
-  const [longName, setLongName] = useState('');
-  const [isNewIssuer, setIsNewIssuer] = useState(true);
-  const [issuerName, setIssuerName] = useState('');
-  const [issuerId, setIssuerId] = useState('');
-  const [instClassName, setInstClassName] = useState('Common Stock');
-  const [instClassId, setInstClassId] = useState('common-stock');
-  const [domicileName, setDomicileName] = useState('USA');
-  const [domicileId, setDomicileId] = useState('usa');
-  const [ccyName, setCcyName] = useState('USD');
-  const [ccyId, setCcyId] = useState('usd');
-  // const [sectorName, setSectorName] = useState('');
-  // const [sectorId, setSectorId] = useState('');
-  // const [subSectorName, setSubSectorName] = useState('');
-  // const [subSectorId, setSubSectorId] = useState('');
-  const [ticker, setTicker] = useState('');
-  const [tickerTypeName, setTickerTypeName] = useState('');
-  const [tickerTypeId, setTickerTypeId] = useState('');
-  const [postResponse, setPostResponse] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [ccyId, setCcyId] = useState('usd');
+  const [ccyName, setCcyName] = useState('USD');
+  const [domicileId, setDomicileId] = useState('usa');
+  const [domicileName, setDomicileName] = useState('USA');
+  const [instClassId, setInstClassId] = useState('common-stock');
+  const [instClassName, setInstClassName] = useState('Common Stock');
+  const [isNewIssuer, setIsNewIssuer] = useState(true);
+  const [issuerId, setIssuerId] = useState('');
+  const [issuerName, setIssuerName] = useState('');
+  const [longName, setLongName] = useState('');
+  const [name, setName] = useState('');
+  const [postResponse, setPostResponse] = useState('');
+  const [ticker, setTicker] = useState('');
+  const [tickerTypeId, setTickerTypeId] = useState('');
+  const [tickerTypeName, setTickerTypeName] = useState('');
 
   const submitInstrumentData = () => {
     setButtonDisabled(true);

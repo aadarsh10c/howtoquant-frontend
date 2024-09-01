@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import GreenButton from '../../primitives/GreenButton';
-import GreenTextBox from '../../primitives/GreenTextBox';
 import GreenForm from '../../containers/GreenForm';
+import GreenTextBox from '../../primitives/GreenTextBox';
 
 import Loading from '../../static/Loading';
 import Error from '../../static/Error';
@@ -12,10 +12,10 @@ import { getInstrumentByTicker } from '../../../utils/api_get';
 export default function EquityView(props) {
   const { contentTitle, initTicker, labelText } = props;
 
-  const [textbox, setTextbox] = useState(initTicker);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [instData, setInstData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [textbox, setTextbox] = useState(initTicker);
 
   useEffect(() => {
     initTicker ? processRequest() : null;

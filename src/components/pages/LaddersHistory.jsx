@@ -7,25 +7,22 @@ import TableContainer from '../containers/TableContainer';
 import { getCashLadder, getAssetLadder } from '../../utils/api_get';
 
 export default function LaddersHistory(props) {
+  const { ladder } = props;
 
-  const {ladder} = props;
-
-  const [APIKey, setAPIKey] = useState('')
+  const [APIKey, setAPIKey] = useState('');
   const [dateFrom, setDateFrom] = useState(
     new Date(new Date().setDate(new Date().getDate() - 7))
   );
   const [dateTo, setDateTo] = useState(new Date());
   const [gotDates, setGotDates] = useState(false);
   const [subpage, setSubPage] = useState('');
-  const [title, setTitle] =useState('Cash Ladder');
+  const [title, setTitle] = useState('Cash Ladder');
 
   useEffect(() => {
-
     let pageTitle = ladder.charAt(0).toUpperCase() + ladder.slice(1);
     setGotDates(false);
     setTitle(`${pageTitle} Ladder`);
-    setAPIKey(`${ladder}_ladder`); 
-    
+    setAPIKey(`${ladder}_ladder`);
   }, [ladder]);
 
   const handleSubmit = (event) => {
@@ -79,7 +76,7 @@ export default function LaddersHistory(props) {
       <section className='d-flex justify-content-center top-split mt-4 py-5'>
         {subpage === 'showLadder' && gotDates ? (
           <TableContainer
-            fetchFunction={ladder === 'cash'? getCashLadder : getAssetLadder}
+            fetchFunction={ladder === 'cash' ? getCashLadder : getAssetLadder}
             fetchParams={[
               dateFrom.toISOString().split('T')[0],
               dateTo.toISOString().split('T')[0],

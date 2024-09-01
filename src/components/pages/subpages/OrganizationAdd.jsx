@@ -1,19 +1,20 @@
 import { useState } from 'react';
 
 import GreenForm from '../../containers/GreenForm';
+
 import { getGenericRequest } from '../../../utils/api_get';
 import { postOrganizations } from '../../../utils/api_post';
 
 export default function OrganizationAdd(props) {
   const { orgType } = props;
 
-  const [orgShortName, setOrgShortName] = useState('');
-  const [orgLongName, setOrgLongName] = useState('');
-  const [orgDescr, setOrgDescr] = useState('');
-  const [orgOwnerName, setOrgOwnerName] = useState('');
-  const [orgOwnerId, setOrgOwnerId] = useState('');
-  const [postResponse, setPostResponse] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [orgDescr, setOrgDescr] = useState('');
+  const [orgLongName, setOrgLongName] = useState('');
+  const [orgOwnerId, setOrgOwnerId] = useState('');
+  const [orgOwnerName, setOrgOwnerName] = useState('');
+  const [orgShortName, setOrgShortName] = useState('');
+  const [postResponse, setPostResponse] = useState('');
 
   const submitOrgData = () => {
     setButtonDisabled(true);

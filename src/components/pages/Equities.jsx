@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
+import EquityView from './subpages/EquityView';
 import GreenButton from '../primitives/GreenButton';
 import TableContainer from '../containers/TableContainer';
-import EquityView from './subpages/EquityView';
 
 import { getGenericRequest } from '../../utils/api_get';
 
