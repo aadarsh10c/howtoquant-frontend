@@ -31,6 +31,7 @@ function App() {
     {
       'accounting': [
         'trades',
+        'cash ladder',
         'positions today',
       ],
     },

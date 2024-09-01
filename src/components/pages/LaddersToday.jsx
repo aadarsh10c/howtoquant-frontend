@@ -35,14 +35,14 @@ export default function LaddersToday() {
           <TableContainer
             title={'Cash Positions'}
             fetchFunction={getCashLadder}
-            fetchParams={(today, today)}
+            fetchParams={[today]}
             fetchKey={'cash_ladder'}
           />
         ) : subpage === 'instLadder' ? (
           <TableContainer
             title={'Instrument Positions'}
             fetchFunction={getInstrumentLadder}
-            fetchParams={(today, today)}
+            fetchParams={[today]}
             fetchKey={'instrument_ladder'}
           />
         ) : null}

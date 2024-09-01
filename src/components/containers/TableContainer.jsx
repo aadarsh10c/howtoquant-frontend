@@ -46,10 +46,17 @@ export default function TableContainer(props){
 
     let content = (
         <>
-            <h2>{title}</h2>
-            <GreenTable headers = {Object.keys(items[0])} content = {items}/>
+         <p className='mb-0 align-content-center'>No data in the database</p>
         </>         
     )
+
+    if (items !== null) {
+        content = 
+        <>
+        <h2>{title}</h2>
+        <GreenTable headers = {Object.keys(items[0])} content = {items}/>
+        </>
+    }
 
     if(isLoading) { content = <Loading /> }      
   

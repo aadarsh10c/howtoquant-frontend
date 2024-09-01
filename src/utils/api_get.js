@@ -42,8 +42,10 @@ export const getGenericRequest = (path) => {
     });
 };
 
-export const getCashLadder = (start_date, end_date) => {
+export const getCashLadder = (dates) => {
   let URL = APIroot + 'accounting/api/cash_ladder';
+  const start_date = dates[0];
+  const end_date = dates[1];
   start_date
     ? end_date
       ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
@@ -73,8 +75,10 @@ export const getInstrumentByTicker = (ticker) => {
     });
 };
 
-export const getInstrumentLadder = (start_date, end_date) => {
+export const getInstrumentLadder = (dates) => {
   let URL = APIroot + 'accounting/api/instrument_ladder';
+  const start_date = dates[0];
+  const end_date = dates[1];
   start_date
     ? end_date
       ? (URL += `?start_date=${start_date}&end_date=${end_date}`)
