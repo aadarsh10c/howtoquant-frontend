@@ -105,12 +105,16 @@ Code and release notes of each of the past releases can be found in the respecti
             <td align = "center">#2</td>
             <td><a href = "https://github.com/VikSil/howtoquant-frontend/tree/v.0.2.0">v.0.2.0</a></td>
         </tr>
+        <tr>
+            <td align = "center">#3</td>
+            <td><a href = "https://github.com/VikSil/howtoquant-frontend/tree/v.0.3.0">v.0.3.0</a></td>
+        </tr>
     </tbody>
 </table>
 
 ## Roadmap
 
-The trajectory of this project is bound to change in accordance to time constraints, priorities and interests of the author. A rough plan for near future sprints is as follows:
+The trajectory of this project is bound to change in accordance to time constraints, priorities and interests of the maintainer. A rough plan for near future sprints is as follows:
 
 <table>
     <thead>
@@ -120,14 +124,6 @@ The trajectory of this project is bound to change in accordance to time constrai
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td align = "center">#3</td>
-            <td><ul>
-            <li>Add interface for manual trade data input</li>
-            <li>Add page for viewing trade list and individual trade data </li>
-            <li>Add page for position data viewing</li>
-            </ul></td>
-        </tr>
         <tr>
             <td align = "center">#4</td>
             <td><ul>
