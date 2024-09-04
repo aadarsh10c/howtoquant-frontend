@@ -7,6 +7,10 @@ This manual contains instructions on how to deploy the repo on Netlify hosting s
 1. Switch `APIroot` variable to the deployed backend URL in `src/utils/api*` files.
 1. Add directory `public`  at the same level as `src` directory.
 1. Add file `_redirects` (no file extension) into the `public` directory.
+1. Paste the following line inside the `_redirects` file:
+
+        /* /index.html 200
+
 1. In the commandline execute this command:
 
         npm run build
@@ -17,11 +21,11 @@ This manual contains instructions on how to deploy the repo on Netlify hosting s
 
 1. In the commandline execute this command (this will take some time):
 
-        npm install netlify-cli -g
+       npm install netlify-cli -g
 
 1. In the commandline execute this command:
 
-        netlify deploy
+       netlify deploy
 
 1. When prompted:
 
@@ -46,9 +50,12 @@ This manual contains instructions on how to deploy the repo on Netlify hosting s
 
 1. To switch an existing domain name to the new site:
 
-    1. Open Netlify `Domains` dashboard.
-    1. In the `DNS records` section delete the existing records for the domain name that has to be reassigned.
     1. Open Netlify `Sites` dashboard.
-    1. Click on the newly deployed site card.
-    1. Open `Domain management` dashboard for the site.
+    1. Click on the site card of the old site.
+    1. Open `Domain management` dashboard for the old site.
+    1. Expand `Options` drop-down for the domain in `Production domains`
+    1. Click `Remove domain`.
+
+    1. Open Netlify `Sites` dashboard again and switch to the new site.
+    1. Open `Domain management` dashboard for the new site.
     1. Click `Add domain alias` and add the domain name. Netlify should recognise that the domain name has previously been used and reassign it to the new site.
